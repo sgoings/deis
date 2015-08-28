@@ -18,3 +18,7 @@ resource "digitalocean_droplet" "deis" {
 output "msg" {
     value = "Your hosts are ready to go! Continue following the documentation to install and start Deis. Your hosts are: ${join(", ", digitalocean_droplet.deis.*.ipv4_address)}"
 }
+
+output "ip" {
+    value = "${digitalocean_droplet.deis.0.ipv4_address}"
+}
